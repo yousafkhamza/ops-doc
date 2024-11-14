@@ -1,7 +1,3 @@
-Here’s a comprehensive set of Kubernetes interview questions covering basic concepts, cluster components, and resource configurations.
-
----
-
 ### **Kubernetes Cluster Basics**
 
 1. **What is Kubernetes?**
@@ -202,5 +198,3 @@ Here’s a comprehensive set of Kubernetes interview questions covering basic co
     - **Cluster Logs**: Kubernetes integrates with centralized logging systems like **ELK (Elasticsearch, Logstash, Kibana)** or **Fluentd** to aggregate and analyze logs from multiple Pods.
 
 ---
-
-These questions provide a strong foundation for understanding Kubernetes basics, covering the main resources, configuration, storage, networking, and cluster management essentials.
