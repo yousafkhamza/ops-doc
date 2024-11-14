@@ -12,6 +12,12 @@ Here’s a comprehensive set of Linux administration interview questions, combin
    - `/sbin` and `/usr/sbin`: Contain system binaries for administrative tasks.
    - `/opt`: Used for optional or third-party software.
 
+1A. **How can you check system information, like kernel version and CPU architecture?**
+   - `uname -r`: Displays the kernel version.
+   - `uname -a`: Displays detailed system information.
+   - `cat /proc/cpuinfo`: Provides CPU information.
+   - `cat /proc/meminfo`: Provides memory information.
+
 2. **Important Configuration File Paths for Services:**
    - **SSH**: `/etc/ssh/sshd_config`
    - **Apache**: `/etc/httpd/conf/httpd.conf` (CentOS) or `/etc/apache2/apache2.conf` (Ubuntu)
@@ -132,16 +138,24 @@ Here’s a comprehensive set of Linux administration interview questions, combin
 ### **Linux Boot Process**
 
 16. **What is the Linux boot process?**
-   - **BIOS/UEFI**: Initializes hardware.
-   - **Bootloader (GRUB)**: Loads the kernel.
-   - **Kernel**: Initializes hardware and mounts the root filesystem.
-   - **`/sbin/init` or `systemd`**: Starts processes based on the target (runlevel).
+   - **BIOS/UEFI**: Initializes hardware and hands control to the bootloader.
+   - **Bootloader (GRUB/LILO)**: Loads the kernel into memory.
+   - **Kernel**: Initializes hardware, mounts root filesystem, and starts `init`.
+   - **`/sbin/init` or `systemd`**: Starts the first process and loads other processes based on the runlevel or target.
 
-17. **What are systemd targets (runlevels)?**
-   - Targets determine system states, such as:
-     - `multi-user.target` (Multi-user, no GUI)
-     - `graphical.target` (Multi-user with GUI)
-     - `reboot.target`, `poweroff.target`
+16A **What is GRUB, and what is its configuration file?**
+   - GRUB (Grand Unified Bootloader) is the bootloader for Linux that loads the kernel.
+   - The main configuration file for GRUB is `/boot/grub/grub.cfg`.
+
+17. **What are runlevels/init levels in Linux?**
+   - **Runlevels** define the state of the machine and what services are available.
+     - 0: Halt (shutdown)
+     - 1: Single-user mode (for maintenance)
+     - 3: Multi-user, no GUI
+     - 5: Multi-user with GUI
+     - 6: Reboot
+   - Runlevels are often replaced by **systemd targets** in modern systems:
+     - `poweroff.target`, `rescue.target`, `multi-user.target`, `graphical.target`, and `reboot.target`.
 
 ---
 
